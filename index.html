@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#D4A017">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="کتاب آهنگ غفور">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="manifest" href="./manifest.json">
+<title>کتاب آهنگ غفور</title>
+<style>
+:root{--g:#D4A017;--gd:#9A7200;--p:#FFF4C7;--bg:#FAF7EF;--ink:#292319;--muted:#786F60;--line:#E8DDC4;--danger:#C53B31}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Tahoma,sans-serif}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:94px}
+.header{padding:calc(18px + env(safe-area-inset-top)) 16px 17px;color:white;background:linear-gradient(135deg,#201a0d,#59420b 58%,#D4A017);border-radius:0 0 30px 30px}
+.head{display:flex;align-items:center;gap:12px}.logo{width:62px;height:62px;border-radius:19px;object-fit:cover;border:2px solid #fff5bd;box-shadow:0 7px 18px #0005}
+h1{font-size:21px;margin:0;font-weight:900}.sub{font-size:12px;color:#ffeeb0;margin-top:4px}
+.search{display:flex;align-items:center;gap:8px;margin-top:14px;padding:11px 13px;border-radius:16px;background:#ffffff1c;border:1px solid #ffffff42}.search input{width:100%;border:0;outline:0;background:transparent;color:white}.search input::placeholder{color:#fff9}
+.hero{height:230px;margin:16px;border-radius:25px;overflow:hidden;position:relative;background:#15120c;box-shadow:0 10px 28px #5b481818}.hero img{width:100%;height:100%;object-fit:cover;opacity:.78}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#17130de8,transparent 70%)}.heroText{position:absolute;right:17px;bottom:16px;z-index:2;color:white}.heroText b{font-size:21px}.heroText div{font-size:12px;color:#ffe9a1;margin-top:4px}
+.section{padding:0 16px;margin-top:18px}.sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px}.sh h2{font-size:18px;margin:0}.link{border:0;background:none;color:var(--gd);font-size:12px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}.chips::-webkit-scrollbar{display:none}.chip{white-space:nowrap;border:1px solid var(--line);background:#fff;color:#63553b;border-radius:999px;padding:10px 14px}.chip.active{background:var(--g);border-color:var(--g);color:#fff;font-weight:800}.add{background:var(--p);border-style:dashed;color:#765900}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.card{position:relative;background:#fff;border:1px solid var(--line);border-radius:19px;padding:14px;min-height:120px;box-shadow:0 5px 15px #5b46110c}.card h3{font-size:16px;margin:0 0 7px}.fav{position:absolute;left:8px;top:6px;border:0;background:none;color:#B18A1E;font-size:20px}.meta{display:flex;gap:5px;flex-wrap:wrap;color:var(--muted);font-size:11px}.tag{background:var(--p);color:#705700;padding:4px 7px;border-radius:8px}.preview{margin-top:9px;color:#6c6254;font-size:12px;line-height:1.7;max-height:42px;overflow:hidden}.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:34px 10px}
+.fab{position:fixed;z-index:9;right:max(18px,calc((100vw - 760px)/2 + 18px));bottom:80px;width:58px;height:58px;border:0;border-radius:20px;background:var(--g);color:#fff;font-size:29px;box-shadow:0 10px 25px #9d78004a}
+.bottom{position:fixed;z-index:10;left:0;right:0;bottom:0;background:#fffdf8ee;backdrop-filter:blur(18px);border-top:1px solid var(--line);padding:7px 12px calc(7px + env(safe-area-inset-bottom))}.nav{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.nav button{border:0;background:none;color:#817660;border-radius:13px;padding:6px 2px;font-size:11px}.nav .ico{display:block;font-size:20px;margin-bottom:2px}
+.overlay{display:none;position:fixed;inset:0;z-index:30;background:#0008;align-items:flex-end}.overlay.show{display:flex}.sheet{width:100%;max-height:93vh;overflow:auto;background:var(--bg);border-radius:28px 28px 0 0;padding:19px 17px calc(24px + env(safe-area-inset-bottom));box-shadow:0 -10px 40px #0003}.sheetTop{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.sheetTop h2{margin:0;font-size:20px}.close{width:38px;height:38px;border:0;border-radius:13px;background:#eee7d8;color:#5e543f;font-size:20px}
+label{display:block;color:var(--muted);font-size:12px;margin:10px 2px 5px}input,textarea,select{width:100%;padding:12px 13px;border:1px solid var(--line);background:#fff;border-radius:14px;outline:0;color:var(--ink)}textarea{min-height:190px;resize:vertical;line-height:1.9}.row{display:grid;grid-template-columns:1fr 1fr;gap:9px}.primary,.secondary{width:100%;border:0;border-radius:15px;padding:13px;margin-top:14px;font-weight:800}.primary{background:var(--g);color:#fff}.secondary{background:#eee7d8;color:#5e543f}.danger{color:var(--danger)}.fullnote{background:#fff;border:1px solid var(--line);border-radius:17px;padding:15px;white-space:pre-wrap;line-height:2;font-size:15px}.item{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;margin:8px 0}.itemBtns button{border:0;background:#f4edde;border-radius:10px;padding:8px;margin-right:3px}.small{font-size:12px;color:var(--muted)}
+.toast{display:none;position:fixed;z-index:60;left:50%;bottom:150px;transform:translateX(-50%);background:#292318;color:#fff;padding:10px 15px;border-radius:13px;font-size:12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}.hero{height:280px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="header">
+ <div class="head"><img class="logo" src="./icon.png"><div><h1>کتاب آهنگ غفور</h1><div class="sub">دفترچه شخصی راگ، تال و نوت‌های آهنگ</div></div></div>
+ <div class="search">⌕<input id="search" placeholder="جستجوی آهنگ، راگ یا تال..."></div>
+</header>
+<div class="hero"><img src="./photo.jpg"><div class="heroText"><b>کتاب آهنگ غفور</b><div>نوت‌هایت را مرتب و همیشه همراه داشته باش</div></div></div>
+
+<section class="section"><div class="sh"><h2>راگ‌ها</h2><button class="link" id="manageRaag">مدیریت ✦</button></div><div id="raags" class="chips"></div></section>
+<section class="section"><div class="sh"><h2>تال‌ها</h2><button class="link" id="manageTaal">مدیریت ✦</button></div><div id="taals" class="chips"></div></section>
+<section class="section"><div class="sh"><h2 id="listTitle">همه نوت‌ها</h2><span id="count" class="small"></span></div><div id="notes" class="grid"></div></section>
+</div>
+
+<button class="fab" id="fab">＋</button>
+<div class="bottom"><div class="nav">
+<button id="homeBtn"><span class="ico">⌂</span>خانه</button>
+<button id="newBtn"><span class="ico">✎</span>نوت جدید</button>
+<button id="trashBtn"><span class="ico">♲</span>سطل زباله</button>
+<button id="manageBtn"><span class="ico">⚙</span>مدیریت</button>
+</div></div>
+<div id="overlay" class="overlay"><div id="sheet" class="sheet"></div></div>
+<div id="toast" class="toast"></div>
+
+<script>
+(function(){
+"use strict";
+const KEY="ghafur_music_book_v3";
+const defaults={
+ raags:["بهیرو","بهیرو بهروی","درباری","شیورنجنی","بلاول","یمن","کافی","پهادی","بیهاگ","مالکونس"],
+ taals:["دادرا","گده","کهروا","مغولی","قطغنی","روپک","تین تال","جهپ تال","اک تال"],
+ notes:[
+  {id:1,title:"نمونه نوت آهنگ",song:"آهنگ نمونه",raag:"بهیرو",taal:"کهروا",text:"سا رِ گا ما | پا ما گا رِ | سا...",date:"2026-10-08",fav:false,deleted:false}
+ ]
+};
+let data;
+try{data=JSON.parse(localStorage.getItem(KEY))||defaults}catch(e){data=defaults}
+let raag="همه",taal="همه",editing=null;
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem(KEY,JSON.stringify(data))}
+function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[c]))}
+function faDate(v){return new Intl.DateTimeFormat("fa-AF",{year:"numeric",month:"long",day:"numeric"}).format(new Date(v+"T12:00:00"))}
+function enDate(v){return new Intl.DateTimeFormat("en-US",{year:"numeric",month:"short",day:"numeric"}).format(new Date(v+"T12:00:00"))}
+function render(){
+ $("raags").innerHTML=["همه"].concat(data.raags).map(x=>'<button class="chip '+(raag===x?"active":"")+'" data-r="'+esc(x)+'">'+esc(x)+'</button>').join("")+'<button class="chip add" id="addRaag">＋ راگ</button>';
+ $("taals").innerHTML=["همه"].concat(data.taals).map(x=>'<button class="chip '+(taal===x?"active":"")+'" data-t="'+esc(x)+'">'+esc(x)+'</button>').join("")+'<button class="chip add" id="addTaal">＋ تال</button>';
+ document.querySelectorAll("[data-r]").forEach(b=>b.onclick=()=>{raag=b.getAttribute("data-r");render()});
+ document.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>{taal=b.getAttribute("data-t");render()});
+ $("addRaag").onclick=()=>addCategory("raag"); $("addTaal").onclick=()=>addCategory("taal");
+ let q=$("search").value.trim().toLowerCase();
+ let ns=data.notes.filter(n=>!n.deleted&&(raag==="همه"||n.raag===raag)&&(taal==="همه"||n.taal===taal));
+ if(q)ns=ns.filter(n=>(n.title+" "+n.song+" "+n.raag+" "+n.taal+" "+n.text).toLowerCase().includes(q));
+ $("listTitle").textContent=(raag==="همه"?"همه نوت‌ها":raag)+(taal==="همه"?"":" • "+taal);
+ $("count").textContent=ns.length+" نوت";
+ $("notes").innerHTML=ns.length?ns.map(n=>'<article class="card" data-note="'+n.id+'"><button class="fav" data-fav="'+n.id+'">'+(n.fav?"★":"☆")+'</button><h3>'+esc(n.title)+'</h3><div class="meta"><span class="tag">'+esc(n.raag)+'</span><span class="tag">'+esc(n.taal)+'</span></div><div class="preview">'+esc(n.text)+'</div><div class="meta" style="margin-top:8px">'+faDate(n.date)+' · '+enDate(n.date)+'</div></article>').join(""):'<div class="empty">در این بخش هنوز نوتی نیست.<br>با دکمه ＋ اولین نوت را اضافه کن.</div>';
+ document.querySelectorAll("[data-note]").forEach(c=>c.onclick=()=>viewNote(Number(c.getAttribute("data-note"))));
+ document.querySelectorAll("[data-fav]").forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFav(Number(b.getAttribute("data-fav")))});
+}
+function openSheet(html){$("sheet").innerHTML=html;$("overlay").classList.add("show")}
+function closeSheet(){$("overlay").classList.remove("show");editing=null}
+$("overlay").onclick=e=>{if(e.target===$("overlay"))closeSheet()}
+function openNote(id){
+ editing=id||null;let n=id?data.notes.find(x=>x.id===id):null;
+ let r=data.raags.map(x=>'<option '+((n?n.raag:raag)===x?"selected":"")+'>'+esc(x)+'</option>').join("");
+ let t=data.taals.map(x=>'<option '+((n?n.taal:taal)===x?"selected":"")+'>'+esc(x)+'</option>').join("");
+ openSheet('<div class="sheetTop"><h2>'+(id?"ویرایش نوت":"نوت جدید")+'</h2><button class="close" id="close">×</button></div>'+
+ '<label>عنوان نوت</label><input id="nt" value="'+esc(n?n.title:"")+'" placeholder="نام نوت">'+
+ '<label>نام آهنگ / خواننده</label><input id="ns" value="'+esc(n?n.song:"")+'" placeholder="نام آهنگ">'+
+ '<div class="row"><div><label>راگ</label><select id="nr">'+r+'</select></div><div><label>تال</label><select id="nl">'+t+'</select></div></div>'+
+ '<label>نوت آهنگ</label><textarea id="nx" placeholder="سا رِ گا ما...">'+esc(n?n.text:"")+'</textarea>'+
+ '<label>تاریخ (قابل اصلاح)</label><input id="nd" type="date" value="'+(n?n.date:new Date().toISOString().slice(0,10))+'">'+
+ '<button class="primary" id="saveNote">ذخیره نوت</button>'+
+ (id?'<button class="secondary danger" id="deleteNote">انتقال به سطل زباله</button>':""));
+ $("close").onclick=closeSheet;$("saveNote").onclick=saveNote;if(id)$("deleteNote").onclick=()=>deleteNote(id);
+}
+function saveNote(){
+ let old=editing?data.notes.find(n=>n.id===editing):null;
+ let n={id:editing||Date.now(),title:$("nt").value.trim()||"بدون عنوان",song:$("ns").value.trim(),raag:$("nr").value,taal:$("nl").value,text:$("nx").value,date:$("nd").value,fav:old?old.fav:false,deleted:false};
+ let i=data.notes.findIndex(x=>x.id===n.id);if(i>=0)data.notes[i]=n;else data.notes.unshift(n);
+ save();closeSheet();render();toast("نوت ذخیره شد ✓")
+}
+function viewNote(id){
+ let n=data.notes.find(x=>x.id===id);if(!n)return;
+ openSheet('<div class="sheetTop"><h2>'+esc(n.title)+'</h2><button class="close" id="close">×</button></div><div class="meta"><span class="tag">'+esc(n.raag)+'</span><span class="tag">'+esc(n.taal)+'</span></div><p class="small">تاریخ دری: '+faDate(n.date)+'<br>تاریخ میلادی: '+enDate(n.date)+'</p><div class="fullnote">'+esc(n.text)+'</div><button class="primary" id="edit">ویرایش</button><button class="secondary" id="favBtn">'+(n.fav?"★ حذف از علاقه‌مندی":"☆ افزودن به علاقه‌مندی")+'</button>');
+ $("close").onclick=closeSheet;$("edit").onclick=()=>openNote(id);$("favBtn").onclick=()=>{toggleFav(id);closeSheet()}
+}
+function toggleFav(id){let n=data.notes.find(x=>x.id===id);if(n)n.fav=!n.fav;save();render()}
+function deleteNote(id){let n=data.notes.find(x=>x.id===id);if(n)n.deleted=true;save();closeSheet();render();toast("به سطل زباله منتقل شد")}
+function trash(){
+ let ns=data.notes.filter(n=>n.deleted);
+ openSheet('<div class="sheetTop"><h2>سطل زباله</h2><button class="close" id="close">×</button></div><div class="small">نوت حذف‌شده را برگردان یا برای همیشه پاک کن.</div>'+
+ (ns.length?ns.map(n=>'<div class="item"><div><b>'+esc(n.title)+'</b><div class="small">'+esc(n.raag)+' • '+esc(n.taal)+'</div></div><div class="itemBtns"><button data-restore="'+n.id+'">↩</button><button class="danger" data-hard="'+n.id+'">×</button></div></div>').join(""):'<div class="empty">سطل زباله خالی است.</div>'));
+ $("close").onclick=closeSheet;document.querySelectorAll("[data-restore]").forEach(b=>b.onclick=()=>restore(Number(b.dataset.restore)));document.querySelectorAll("[data-hard]").forEach(b=>b.onclick=()=>hardDelete(Number(b.dataset.hard)));
+}
+function restore(id){let n=data.notes.find(x=>x.id===id);if(n)n.deleted=false;save();trash();render();toast("نوت برگردانده شد")}
+function hardDelete(id){if(!confirm("این نوت برای همیشه حذف شود؟"))return;data.notes=data.notes.filter(n=>n.id!==id);save();trash();render()}
+function addCategory(type){let s=prompt(type==="raag"?"نام راگ جدید را وارد کن:":"نام تال جدید را وارد کن:");if(!s||!s.trim())return;let a=type==="raag"?data.raags:data.taals;s=s.trim();if(!a.includes(s))a.push(s);save();render();toast("اضافه شد ✓")}
+function manage(type){
+ let isT=type==="taal",a=isT?data.taals:data.raags,label=isT?"تال":"راگ";
+ openSheet('<div class="sheetTop"><h2>مدیریت '+label+'‌ها</h2><button class="close" id="close">×</button></div><button class="primary" id="add">＋ افزودن '+label+'</button>'+
+ a.map((x,i)=>'<div class="item"><b>'+esc(x)+'</b><div class="itemBtns"><button data-ren="'+i+'">✎</button><button class="danger" data-rem="'+i+'">×</button></div></div>').join(""));
+ $("close").onclick=closeSheet;$("add").onclick=()=>addCategory(type);
+ document.querySelectorAll("[data-ren]").forEach(b=>b.onclick=()=>renameCategory(type,Number(b.dataset.ren)));
+ document.querySelectorAll("[data-rem]").forEach(b=>b.onclick=()=>removeCategory(type,Number(b.dataset.rem)));
+}
+function renameCategory(type,i){let a=type==="raag"?data.raags:data.taals,old=a[i],s=prompt("نام جدید:",old);if(!s||!s.trim()||s.trim()===old)return;s=s.trim();a[i]=s;data.notes.forEach(n=>{if(n[type]===old)n[type]=s});save();manage(type);render()}
+function removeCategory(type,i){let a=type==="raag"?data.raags:data.taals,name=a[i];if(!confirm("این "+(type==="raag"?"راگ":"تال")+" حذف شود؟"))return;a.splice(i,1);save();manage(type);render()}
+function toast(s){let e=$("toast");e.textContent=s;e.style.display="block";setTimeout(()=>e.style.display="none",1800)}
+$("search").oninput=render;$("fab").onclick=()=>openNote();$("newBtn").onclick=()=>openNote();$("trashBtn").onclick=trash;$("homeBtn").onclick=()=>{raag="همه";taal="همه";render()};$("manageRaag").onclick=()=>manage("raag");$("manageTaal").onclick=()=>manage("taal");$("manageBtn").onclick=()=>manage("raag");
+render();
+})();
+</script>
+</body>
+</html>
